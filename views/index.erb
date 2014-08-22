@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Send coffee to the Out with Sprout crew</title>
+  <link rel="stylesheet" type="text/css" href="ows.css">
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <a href="http://www.outwithsprout.com" title="Out with Sprout: Omaha's Family Event Calendar">
+        <img src="/logo.png" alt="Out with Sprout: Omaha's Family Event Calendar" width="260">
+      </a>
+    </header>
+
+    <section id="main">
+      <div class="box rachel selected">Rachel</div><div class="box jason">Jason</div>
+      <div class="box jerod">Jerod</div><div class="box sarah">Sarah</div>
+
+      <div class="coffee-wrapper">
+        <button id="coffee">
+          Buy Coffee For
+          <span id="selected-count">1</span>
+          (<span id="selected-dollars">$5</span>)
+        </button>
+      </div>
+    </section>
+
+    <section id="thanks">
+      <h1>THANKS!</h1>
+    </section>
+  </div>
+
+  <script src="https://checkout.stripe.com/checkout.js"></script>
+  <script src="ows.js"></script>
+  <script>
+    OWS.init("<%= settings.stripe_key %>");
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+body {
+  background: #52b2cc;
+  margin: 0;
+  padding-top: 15px;
+  font-family: nimbus-sans, HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+.wrapper {
+  max-width: 450px;
+  margin: 0 auto 10px auto;
+}
+
+header {
+  text-align: center;
+}
+
+header img {
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom;
+}
+
+#main, #thanks {
+  background: #fafafa;
+  padding: 25px;
+  border-radius: 6px;
+}
+
+#thanks {
+  display: none;
+}
+
+div.box {
+  box-sizing: border-box;
+  height: 200px;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  cursor: pointer;
+}
+
+div.box.hovered {
+  background: gray;
+}
+
+div.box.selected {
+  background: red;
+}
+
+.rachel { background: #eb5588; }
+.jason  { background: #2b824d; }
+.jerod  { background: #3e4656; }
+.sarah  { background: #ecc85b; }
+
+.coffee-wrapper {
+  margin: 0 auto;
+  max-width: 440px;
+}
+
+#coffee {
+  width: 100%;
+  padding: 7px;
+  margin-top: 25px;
+  font-size: 18px;
+  color: white;
+  background: #e74835;
+  border: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 450px) {
+  .wrapper {
+    max-width: 350px;
+  }
+
+  div.box {
+    width: 150px;
+    height: 150px;
+  }
+}
