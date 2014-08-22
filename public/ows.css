@@ -80,3 +80,14 @@ div.box.selected {
     height: 150px;
   }
 }
+
+@media only screen and (max-width: 320px) {
+  .wrapper {
+    max-width: 300px;
+  }
+
+  div.box {
+    width: 125px;
+    height: 125px;
+  }
+}
