@@ -14,16 +14,25 @@
   <div class="wrapper">
     <header>
       <a href="http://www.outwithsprout.com" title="Out with Sprout: Omaha's Family Event Calendar">
-        <img src="/logo.png" alt="Out with Sprout: Omaha's Family Event Calendar" width="260">
+        <img src="images/logo.png" alt="Out with Sprout: Omaha's Family Event Calendar" width="260">
       </a>
     </header>
 
     <section id="main">
-      <div class="box rachel selected">Rachel</div><div class="box jason">Jason</div>
-      <div class="box jerod">Jerod</div><div class="box sarah">Sarah</div>
+      <p class="about">
+        <span class="fancy-text">Bringing</span> you the best events in
+        <span class="fancy-text">Omaha</span> means a lot of
+        <span class="fancy-text">late</span> nights and
+        <span class="fancy-text">early</span> mornings. Help us fight off the
+        <span class="fancy-text">ZZZ's</span> with a fresh cup of
+        <span class="fancy-text">coffee!</span>
+      </p>
+
+      <div id="rachel" class="box rachel">Rachel</div><div id="jason" class="box jason">Jason</div>
+      <div id="jerod" class="box jerod">Jerod</div><div id="sarah" class="box sarah">Sarah</div>
 
       <div class="coffee-wrapper">
-        <button id="coffee">
+        <button id="coffee" class="animated">
           Buy Coffee For
           <span id="selected-count">1</span>
           (<span id="selected-dollars">$5</span>)
@@ -40,6 +49,15 @@
   <script src="ows.js"></script>
   <script>
     OWS.init("<%= settings.stripe_key %>");
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3287978-21', 'auto');
+    ga('send', 'pageview');
   </script>
 </body>
 </html>

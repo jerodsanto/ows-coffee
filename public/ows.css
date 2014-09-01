@@ -7,7 +7,7 @@ body {
 }
 
 .wrapper {
-  max-width: 450px;
+  max-width: 465px;
   margin: 0 auto 10px auto;
 }
 
@@ -31,28 +31,65 @@ header img {
   display: none;
 }
 
+p.about {
+  font-size: 14px;
+  color: #1e1e1e;
+  line-height: 1.5em;
+  font-weight: bold;
+  text-align: justify;
+}
+
+p.about a {
+  color: #1e1e1e;
+}
+
+.fancy-text {
+  font-size: 1.5em;
+}
+
+.char1, .char8, .char15, .char22, .char29 { color: #8e8e8e; }
+.char2, .char9, .char16, .char23, .char30 { color: #a4a4a4; }
+.char3, .char10, .char17, .char24, .char31 { color: #a0a0a0; }
+.char4, .char11, .char18, .char25, .char32 { color: #8f8f8f; }
+.char5, .char12, .char19, .char26, .char33 { color: #8f8f8f; }
+.char6, .char13, .char20, .char27, .char34 { color: #575757; }
+.char7, .char14, .char21, .char28, .char35 { color: #7b7b7b; }
+
 div.box {
   box-sizing: border-box;
   height: 200px;
   width: 200px;
-  margin: 0;
   padding: 0;
   display: inline-block;
   cursor: pointer;
-}
-
-div.box.hovered {
-  background: gray;
+  background-image: url("images/faces.jpg");
+  background-repeat:  no-repeat;
+  background-size: 200%;
+  text-indent: -99999px;
+  border: 15px solid gray;
 }
 
 div.box.selected {
-  background: red;
+  border: 15px solid #e74835;
 }
 
-.rachel { background: #eb5588; }
-.jason  { background: #2b824d; }
-.jerod  { background: #3e4656; }
-.sarah  { background: #ecc85b; }
+.rachel, .jerod { margin-right: 15px; }
+.rachel, .jason { margin-bottom: 15px; }
+
+.rachel { background-position: 0px 0px; }
+.jerod  { background-position: 0px -510px; }
+.jason  { background-position: -170px 0px; }
+.sarah  { background-position: -170px -510px; }
+
+.rachel.hovered { background-position: 0px -170px; }
+.jerod.hovered  { background-position: 0px -680px; }
+.jason.hovered  { background-position: -170px -170px; }
+.sarah.hovered  { background-position: -170px -680px; }
+
+.rachel.selected { background-position: 0px -340px; }
+.jerod.selected  { background-position: 0px -850px; }
+.jason.selected  { background-position: -170px -340px; }
+.sarah.selected  { background-position: -170px -850px; }
 
 .coffee-wrapper {
   margin: 0 auto;
@@ -70,24 +107,106 @@ div.box.selected {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 450px) {
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    -ms-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+@media only screen and (max-width: 470px) {
   .wrapper {
-    max-width: 350px;
+    max-width: 370px;
   }
 
   div.box {
     width: 150px;
     height: 150px;
   }
+
+  .rachel { background-position: 0px 0px; }
+  .jerod  { background-position: 0px -360px; }
+  .jason  { background-position: -120px 0px; }
+  .sarah  { background-position: -120px -360px; }
+
+  .rachel.hovered { background-position: 0px -120px; }
+  .jerod.hovered  { background-position: 0px -480px; }
+  .jason.hovered  { background-position: -120px -120px; }
+  .sarah.hovered  { background-position: -120px -480px; }
+
+  .rachel.selected { background-position: 0px -240px; }
+  .jerod.selected  { background-position: 0px -600px; }
+  .jason.selected  { background-position: -120px -240px; }
+  .sarah.selected  { background-position: -120px -600px; }
 }
 
 @media only screen and (max-width: 320px) {
   .wrapper {
-    max-width: 300px;
+    max-width: 310px;
   }
 
   div.box {
     width: 125px;
     height: 125px;
   }
+
+  .rachel, .jerod { margin-right: 10px; }
+  .rachel, .jason { margin-bottom: 10px; }
+
+  .rachel { background-position: 0px 0px; }
+  .jerod  { background-position: 0px -285px; }
+  .jason  { background-position: -95px 0px; }
+  .sarah  { background-position: -95px -285px; }
+
+  .rachel.hovered { background-position: 0px -95px; }
+  .jerod.hovered  { background-position: 0px -380px; }
+  .jason.hovered  { background-position: -95px -95px; }
+  .sarah.hovered  { background-position: -95px -380px; }
+
+  .rachel.selected { background-position: 0px -190px; }
+  .jerod.selected  { background-position: 0px -475px; }
+  .jason.selected  { background-position: -95px -190px; }
+  .sarah.selected  { background-position: -95px -475px; }
 }
