@@ -62,14 +62,9 @@ this.OWS = {
 
   playSound: function(name) {
     var audio = document.getElementById(name);
+
     if (audio) {
       audio.play();
-    } else {
-      var audio = document.createElement("audio");
-      audio.id = name;
-      audio.autoplay = "autoplay";
-      audio.innerHTML = "<source src='audio/"+name+".mp3'><source src='audio/"+name+".ogg'>";
-      document.body.appendChild(audio);
     }
   },
 
