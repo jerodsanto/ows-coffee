@@ -100,31 +100,34 @@ this.OWS = {
     this.button = document.getElementById("coffee");
 
     for (i = 0; i < this.boxes.length; i++) {
-      var box = this.boxes[i];
-
-      box.onmouseover = function() {
+      this.boxes[i].onmouseover = function() {
         if (!self.hasClass(this, "selected")) {
           self.addClass(this, "hovered");
-          ga("send", "face", "hover", box.id);
+          self.playSound("hover-" + this.id);
+          ga("send", "face", "hover", this.id);
         }
       }
 
-      box.onmouseout = function() {
+      this.boxes[i].onmouseout = function() {
         if (!self.hasClass(this, "selected")) {
           self.removeClass(this, "hovered");
         }
       }
 
-      box.onclick = function() {
+      this.boxes[i].onclick = function() {
+        window.scrollTo(0,document.body.scrollHeight);
+
         if (self.hasClass(this, "selected")) {
           if (self.selected > 1) {
             self.removeClass(this, "selected");
             self.removeClass(this, "hovered");
-            ga("send", "face", "deselect", box.id);
+            self.playSound("deselect-" + this.id);
+            ga("send", "face", "deselect", this.id);
           }
         } else {
           self.addClass(this, "selected");
-          ga("send", "face", "select", box.id);
+          self.playSound("select-" + this.id);
+          ga("send", "face", "select", this.id);
         }
 
         self.updateButton();
@@ -144,11 +147,6 @@ this.OWS = {
 
     // initialize a randomly selected box
     this.addClass(this.boxes[Math.floor(Math.random() * 3)], "selected");
-
-    // scroll to bottom after a second, to ensure buy button is seen
-    setTimeout(function() {
-      window.scrollTo(0,document.body.scrollHeight);
-    }, 1500);
 
     this.updateButton();
   }
