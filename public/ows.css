@@ -62,14 +62,20 @@ div.box {
   padding: 0;
   display: inline-block;
   cursor: pointer;
-  background-image: url("images/faces.jpg");
+  background-image: url("images/sad-faces.jpg");
   background-repeat:  no-repeat;
-  background-size: 200%;
   text-indent: -99999px;
   border: 15px solid gray;
 }
 
+div.box.hovered {
+  background-image: url("images/beckoning-faces.jpg");
+  border: 15px solid #e74835;
+}
+
+
 div.box.selected {
+  background-image: url("images/happy-faces.jpg");
   border: 15px solid #e74835;
 }
 
@@ -77,19 +83,9 @@ div.box.selected {
 .rachel, .jason { margin-bottom: 15px; }
 
 .rachel { background-position: 0px 0px; }
-.jerod  { background-position: 0px -510px; }
+.jerod  { background-position: 0px -170px; }
 .jason  { background-position: -170px 0px; }
-.sarah  { background-position: -170px -510px; }
-
-.rachel.hovered { background-position: 0px -170px; }
-.jerod.hovered  { background-position: 0px -680px; }
-.jason.hovered  { background-position: -170px -170px; }
-.sarah.hovered  { background-position: -170px -680px; }
-
-.rachel.selected { background-position: 0px -340px; }
-.jerod.selected  { background-position: 0px -850px; }
-.jason.selected  { background-position: -170px -340px; }
-.sarah.selected  { background-position: -170px -850px; }
+.sarah  { background-position: -170px -170px; }
 
 .coffee-wrapper {
   margin: 0 auto;
@@ -167,19 +163,9 @@ div.box.selected {
   }
 
   .rachel { background-position: 0px 0px; }
-  .jerod  { background-position: 0px -360px; }
+  .jerod  { background-position: 0px -120px; }
   .jason  { background-position: -120px 0px; }
-  .sarah  { background-position: -120px -360px; }
-
-  .rachel.hovered { background-position: 0px -120px; }
-  .jerod.hovered  { background-position: 0px -480px; }
-  .jason.hovered  { background-position: -120px -120px; }
-  .sarah.hovered  { background-position: -120px -480px; }
-
-  .rachel.selected { background-position: 0px -240px; }
-  .jerod.selected  { background-position: 0px -600px; }
-  .jason.selected  { background-position: -120px -240px; }
-  .sarah.selected  { background-position: -120px -600px; }
+  .sarah  { background-position: -120px -120px; }
 }
 
 @media only screen and (max-width: 320px) {
@@ -196,17 +182,41 @@ div.box.selected {
   .rachel, .jason { margin-bottom: 10px; }
 
   .rachel { background-position: 0px 0px; }
-  .jerod  { background-position: 0px -285px; }
+  .jerod  { background-position: 0px -95px; }
   .jason  { background-position: -95px 0px; }
-  .sarah  { background-position: -95px -285px; }
+  .sarah  { background-position: -95px -95px; }
+}
 
-  .rachel.hovered { background-position: 0px -95px; }
-  .jerod.hovered  { background-position: 0px -380px; }
-  .jason.hovered  { background-position: -95px -95px; }
-  .sarah.hovered  { background-position: -95px -380px; }
+@media (-webkit-max-device-pixel-ratio: 1),
+       (-o-max-device-pixel-ratio: 1/1),
+       (max--moz-device-pixel-ratio: 1),
+       (max-device-pixel-ratio: 1),
+       (max-resolution: 1dppx) {
+  body:after {
+    content: url("images/sad-faces.jpg") url("images/happy-faces.jpg") url("images/beckoning-faces.jpg");
+    display: none;
+  }
+}
 
-  .rachel.selected { background-position: 0px -190px; }
-  .jerod.selected  { background-position: 0px -475px; }
-  .jason.selected  { background-position: -95px -190px; }
-  .sarah.selected  { background-position: -95px -475px; }
+@media (-webkit-min-device-pixel-ratio: 1.3),
+       (-o-min-device-pixel-ratio: 2.6/2),
+       (min--moz-device-pixel-ratio: 1.3),
+       (min-device-pixel-ratio: 1.3),
+       (min-resolution: 1.3dppx) {
+  body:after {
+    content: url("images/sad-faces@2x.jpg") url("images/happy-faces@2x.jpg") url("images/beckoning-faces@2x.jpg");
+    display: none;
+  }
+
+  div.box {
+    background-image: url("images/sad-faces@2x.jpg");
+    background-size: 200%;
+  }
+  div.box.hovered {
+    background-image: url("images/beckoning-faces@2x.jpg");
+  }
+
+  div.box.selected {
+    background-image: url("images/happy-faces@2x.jpg");
+  }
 }
