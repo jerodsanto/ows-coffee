@@ -68,7 +68,7 @@ this.OWS = {
         others[i].pause();
         others[i].currentTime = 0.0;
       } catch(err) {
-        console.log(error);
+        console.log(err);
       }
     }
 
