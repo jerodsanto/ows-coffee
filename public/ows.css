@@ -8,17 +8,46 @@ body {
 
 .wrapper {
   max-width: 465px;
-  margin: 0 auto 10px auto;
+  margin: 0 auto;
 }
 
 header {
   text-align: center;
+  height: 200px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 2;
 }
 
-header img {
-  margin: 0;
-  padding: 0;
-  vertical-align: bottom;
+header h1 {
+  position: absolute;
+  z-index: 2;
+  width: 246px;
+  margin: 0 0 0 -123px;
+  height: 190px;
+  left: 50%;
+  bottom: 0;
+}
+
+header h1 a {
+  display: block;
+  padding: 0 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("images/logo.png");
+  background-position: center -4px;
+  background-size: 260px 198px;
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  -webkit-transition: background-position 0.1s ease-in-out;
+  -moz-transition: background-position 0.1s ease-in-out;
+  transition: background-position 0.1s ease-in-out;
+}
+
+header a:hover {
+  background-position: center -8px;
 }
 
 #main, #thanks {
@@ -64,6 +93,7 @@ div.box {
   cursor: pointer;
   background-image: url("images/sad-faces.jpg");
   background-repeat:  no-repeat;
+  background-size: 200%;
   text-indent: -99999px;
   border: 15px solid gray;
 }
@@ -208,9 +238,12 @@ div.box.selected {
     display: none;
   }
 
+  header h1 a {
+    background-image: url("images/logo@2x.png");
+  }
+
   div.box {
     background-image: url("images/sad-faces@2x.jpg");
-    background-size: 200%;
   }
   div.box.hovered {
     background-image: url("images/beckoning-faces@2x.jpg");
