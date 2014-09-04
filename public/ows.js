@@ -117,8 +117,6 @@ this.OWS = {
       }
 
       this.boxes[i].onclick = function() {
-        window.scrollTo(0,document.body.scrollHeight);
-
         if (self.hasClass(this, "selected")) {
           if (self.selected > 1) {
             self.removeClass(this, "selected");
