@@ -61,6 +61,13 @@ this.OWS = {
   },
 
   playSound: function(name) {
+    var others = document.getElementsByTagName("audio");
+
+    for (var i = 0; i < others.length; i++) {
+      others[i].pause();
+      others[i].currentTime = 0.0;
+    }
+
     var audio = document.getElementById(name);
 
     if (audio) {
