@@ -76,8 +76,8 @@ p.about a {
   font-size: 1.5em;
 }
 
-.char1, .char8, .char15, .char22, .char29 { color: #8e8e8e; }
-.char2, .char9, .char16, .char23, .char30 { color: #a4a4a4; }
+.char1, .char8, .char15, .char22, .char29  { color: #8e8e8e; }
+.char2, .char9, .char16, .char23, .char30  { color: #a4a4a4; }
 .char3, .char10, .char17, .char24, .char31 { color: #a0a0a0; }
 .char4, .char11, .char18, .char25, .char32 { color: #8f8f8f; }
 .char5, .char12, .char19, .char26, .char33 { color: #8f8f8f; }
@@ -180,6 +180,11 @@ div.box.selected {
 .pulse {
   -webkit-animation-name: pulse;
   animation-name: pulse;
+}
+
+audio {
+  display: none;
+  height: 0px;
 }
 
 @media only screen and (max-width: 470px) {
