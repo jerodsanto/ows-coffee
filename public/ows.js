@@ -1,8 +1,3 @@
-(function(fn){
-    if (!fn.map) fn.map=function(f){var r=[];for(var i=0;i<this.length;i++)r.push(f(this[i]));return r}
-    if (!fn.filter) fn.filter=function(f){var r=[];for(var i=0;i<this.length;i++)if(f(this[i]))r.push(this[i]);return r}
-})(Array.prototype);
-
 this.OWS = {
   hasClass: function(element, className) {
     return (" " + element.className + " ").indexOf(" " + className + " ") > -1;
@@ -106,19 +101,17 @@ this.OWS = {
     this.button = document.getElementById("coffee");
 
     for (i = 0; i < this.boxes.length; i++) {
-      this.boxes[i].onmouseover = function() {
+      hoverintent(this.boxes[i], function() {
         if (!self.hasClass(this, "selected")) {
           self.addClass(this, "hovered");
           self.playSound("hover-" + this.id);
           ga("send", "face", "hover", this.id);
         }
-      }
-
-      this.boxes[i].onmouseout = function() {
+      }, function() {
         if (!self.hasClass(this, "selected")) {
           self.removeClass(this, "hovered");
         }
-      }
+      }).options({interval: 125});
 
       this.boxes[i].onclick = function() {
         if (self.hasClass(this, "selected")) {
