@@ -1,4 +1,4 @@
-this.OWS = {
+this.OwS = {
   hasClass: function(element, className) {
     return (" " + element.className + " ").indexOf(" " + className + " ") > -1;
   },
@@ -15,7 +15,7 @@ this.OWS = {
   },
 
   charge: function(token) {
-    var params = "token=" + token.id + "&amount=" + OWS.totalCents;
+    var params = "token=" + token.id + "&amount=" + OwS.totalCents;
     var request = new XMLHttpRequest();
 
     request.open("POST", "/charge", true);
@@ -24,16 +24,11 @@ this.OWS = {
 
     request.onreadystatechange = function() {
       if (request.readyState == 4 && request.status == 200) {
-        OWS.didCharge(request.responseText);
+        OwS.thanks(request.responseText);
       }
     }
 
     request.send(params);
-  },
-
-  didCharge: function(response) {
-    document.getElementById("main").style.display = "none";
-    document.getElementById("thanks").style.display = "block";
   },
 
   updateSelected: function() {
@@ -74,6 +69,29 @@ this.OWS = {
     }
   },
 
+  share: function(item, width, height) {
+    var left = screen.width / 2 - 500 / 2;
+    var top = screen.height / 2 - 300 / 2;
+    console.log(left, top);
+    var shareWindow = window.open(item.href, "OwS Share", "location=1,status=1,scrollbars=1,width=500, height=300");
+    shareWindow = shareWindow.moveTo(left, top);
+    return false;
+  },
+
+  thanks: function() {
+    document.getElementById("main").style.display = "none";
+    document.getElementById("thanks").style.display = "block";
+
+    var video = document.getElementById("srsly-thanks");
+
+    video.onended = function() {
+      ga("send", "video", "ended");
+      video.controls=true;
+    }
+
+    video.play();
+  },
+
   init: function(stripeKey) {
     var self = this;
     var i = 0, j = 0;
@@ -92,7 +110,7 @@ this.OWS = {
       var letters = this.fancies[i].innerHTML.split("");
 
       this.fancies[i].innerHTML = letters.map(function(letter) {
-        ++j;
+        if (++j === 8) j = 1;
         return "<span class='char"+j+"'>"+letter+"</span>";
       }).join("");
     }
