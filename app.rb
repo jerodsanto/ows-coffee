@@ -6,6 +6,10 @@ Bundler.require
 set :stripe_key, ENV["STRIPE_KEY"]
 set :stripe_secret, ENV["STRIPE_SECRET"]
 
+configure :production do
+  set :static_cache_control, [:public, max_age: 86_400]
+end
+
 Stripe.api_key = settings.stripe_secret
 
 get "/" do
